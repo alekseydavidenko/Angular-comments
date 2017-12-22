@@ -1,0 +1,1 @@
+{"version":3,"file":"list-comment.commponent.js","sourceRoot":"","sources":["list-comment.commponent.ts"],"names":[],"mappings":";;;;;;;;AAAA,sCAA0C;AAMvC;IAAA;IAEH,CAAC;IAFe,oBAAoB;QAJnC,gBAAS,CAAC;YACP,QAAQ,EAAE,MAAM,CAAC,EAAE;YACnB,QAAQ,EAAE,cAAc;YACxB,WAAW,EAAE,8BAA8B;SAC9C,CAAC;OAAc,oBAAoB,CAEnC;IAAD,2BAAC;CAAA,AAFE,IAEF;AAFe,oDAAoB"}

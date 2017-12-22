@@ -10,7 +10,8 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
-var index_1 = require("./lists/index");
+var app_routes_1 = require("./app.routes");
+var comment_module_1 = require("./comments/comment-module");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -18,8 +19,8 @@ var AppModule = /** @class */ (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
-                index_1.ListsModel,
-                router_1.RouterModule.forRoot(index_1.routs),
+                comment_module_1.CommentModule,
+                router_1.RouterModule.forRoot(app_routes_1.routes),
             ],
             declarations: [app_component_1.AppComponent],
             bootstrap: [app_component_1.AppComponent]
