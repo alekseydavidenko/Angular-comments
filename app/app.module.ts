@@ -6,14 +6,16 @@ import { AppComponent } from "./app.component";
 import { routes } from "./app.routes";
 
 import { CommentModule } from "./comments/comment-module";
+import { CommentService } from './shared/comment.service';
 
 @NgModule({
     imports: [
         BrowserModule,
         CommentModule,
-        RouterModule.forRoot(routes),
+        RouterModule.forRoot(routes)
     ],
     declarations: [AppComponent],
+    providers: [CommentService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

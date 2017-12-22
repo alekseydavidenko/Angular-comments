@@ -1,0 +1,14 @@
+.ng-valid[required], .ng-valid.required  {
+    border: 2px solid rgb(69, 138, 100); 
+}
+  
+.ng-invalid:not(form)  {
+    border: 2px solid rgb(204, 108, 108); 
+}
+
+.error {
+    color: rgb(180, 67, 67);
+}
+.error::content {
+    margin-top: 10px;
+}

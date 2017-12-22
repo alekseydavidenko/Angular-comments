@@ -12,6 +12,7 @@ var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
 var app_routes_1 = require("./app.routes");
 var comment_module_1 = require("./comments/comment-module");
+var comment_service_1 = require("./shared/comment.service");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -20,9 +21,10 @@ var AppModule = /** @class */ (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 comment_module_1.CommentModule,
-                router_1.RouterModule.forRoot(app_routes_1.routes),
+                router_1.RouterModule.forRoot(app_routes_1.routes)
             ],
             declarations: [app_component_1.AppComponent],
+            providers: [comment_service_1.CommentService],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

@@ -7,26 +7,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var common_1 = require("@angular/common");
-var forms_1 = require("@angular/forms");
-var index_1 = require("./index");
-var CommentModule = /** @class */ (function () {
-    function CommentModule() {
+var CommentService = /** @class */ (function () {
+    function CommentService() {
+        this.url = "http://localhost:2403/comments";
     }
-    CommentModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                common_1.CommonModule,
-                forms_1.ReactiveFormsModule
-            ],
-            declarations: [
-                index_1.HostCommentComponent,
-                index_1.ListCommentComponent,
-                index_1.CreateCommentComponent
-            ]
-        })
-    ], CommentModule);
-    return CommentModule;
+    CommentService = __decorate([
+        core_1.Injectable()
+    ], CommentService);
+    return CommentService;
 }());
-exports.CommentModule = CommentModule;
-//# sourceMappingURL=comment-module.js.map
+exports.CommentService = CommentService;
+//# sourceMappingURL=comment.service.js.map
