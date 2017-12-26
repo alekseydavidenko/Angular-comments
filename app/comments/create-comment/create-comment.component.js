@@ -57,7 +57,18 @@ var CreateCommentComponent = /** @class */ (function () {
             }
         }
     };
-    CreateCommentComponent.prototype.createComment = function () {
+    CreateCommentComponent.prototype.createComment = function (createCommentForm) {
+        var _this = this;
+        this.comment.userName = createCommentForm.value.name;
+        this.comment.comment = createCommentForm.value.message;
+        this.comment.date = new Date();
+        this.commentService.addComment(this.comment)
+            .subscribe(function () {
+            _this.createCommentForm = _this.fb.group({
+                name: ["", forms_1.Validators.required],
+                message: ["", forms_1.Validators.required]
+            });
+        }, function (error) { return _this.errorMessage = error; });
     };
     CreateCommentComponent = __decorate([
         core_1.Component({

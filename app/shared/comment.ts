@@ -1,10 +1,10 @@
 import { Data } from "@angular/router/src/config";
 
 export class Comment {
-    id: any;
+    id: string;
     userName: string;
     comment: string;
-    date: Data;
+    date: Date;
 
     constructor(id, userName, comment, date) {
         this.id = id;

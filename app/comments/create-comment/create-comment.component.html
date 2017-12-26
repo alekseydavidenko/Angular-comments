@@ -1,4 +1,4 @@
-<form (ngSubmit)="createComment()" [formGroup]="createCommentForm">
+<form (ngSubmit)="createComment(createCommentForm)" [formGroup]="createCommentForm">
     <div class="form-group">
         <label for="name">Ваше имя</label>
         <input type="text" id="name" class="form-control" formControlName="name">
@@ -8,7 +8,7 @@
     </div>
     <div class="form-group">
         <label>Ваше сообщениe</label>
-        <textarea id="message" class="form-control" rows="3" 
+        <textarea id="message" class="form-control" rows="5" 
             formControlName="message"></textarea>
         <div *ngIf="formErrors.message" class="error">
             {{formErrors.message}}

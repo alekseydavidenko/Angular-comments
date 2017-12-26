@@ -12,3 +12,7 @@
 .error::content {
     margin-top: 10px;
 }
+
+textarea {
+    resize: none;
+}

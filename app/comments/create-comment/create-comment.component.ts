@@ -62,10 +62,21 @@ import { Comment, CommentService } from "../../shared/index";
             }
         }
     }
+    createComment(createCommentForm: FormGroup){
+        
+        this.comment.userName = createCommentForm.value.name;
+        this.comment.comment = createCommentForm.value.message;
+        this.comment.date = new Date();
 
-
-
-    createComment(){
-
+        this.commentService.addComment(this.comment)
+            .subscribe(
+                () => {
+                    this.createCommentForm = this.fb.group({
+                        name: ["", Validators.required],
+                        message: ["", Validators.required]
+                    });
+                },
+                error => this.errorMessage = error
+            )
     }
 }

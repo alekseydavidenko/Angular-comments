@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var router_1 = require("@angular/router");
+var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 var app_routes_1 = require("./app.routes");
 var comment_module_1 = require("./comments/comment-module");
@@ -20,6 +21,7 @@ var AppModule = /** @class */ (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
+                http_1.HttpModule,
                 comment_module_1.CommentModule,
                 router_1.RouterModule.forRoot(app_routes_1.routes)
             ],
