@@ -1,6 +1,7 @@
 .idea/
 build
 node_modules
+db
 npm-debug.log
 .DS_Store
 ### Windows template
