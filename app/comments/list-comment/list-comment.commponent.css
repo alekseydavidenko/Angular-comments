@@ -11,5 +11,6 @@ h4 {
 }
 span {
     font-weight: 300;
-    font-size: 12px;    
+    font-size: 12px; 
+    margin-left: 15px;   
 }

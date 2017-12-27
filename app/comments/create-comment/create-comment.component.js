@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var index_1 = require("../../shared/index");
+var list_comment_commponent_1 = require("../list-comment/list-comment.commponent");
 var CreateCommentComponent = /** @class */ (function () {
     function CreateCommentComponent(commentService, fb) {
         this.commentService = commentService;
@@ -33,6 +34,7 @@ var CreateCommentComponent = /** @class */ (function () {
     CreateCommentComponent.prototype.ngOnInit = function () {
         this.BuildForm();
     };
+    ;
     CreateCommentComponent.prototype.BuildForm = function () {
         var _this = this;
         this.createCommentForm = this.fb.group({
@@ -42,6 +44,7 @@ var CreateCommentComponent = /** @class */ (function () {
         this.createCommentForm.valueChanges
             .subscribe(function (data) { return _this.onValueChanged(data); });
     };
+    ;
     CreateCommentComponent.prototype.onValueChanged = function (data) {
         if (!this.createCommentForm)
             return;
@@ -54,9 +57,13 @@ var CreateCommentComponent = /** @class */ (function () {
                 for (var key in control.errors) {
                     this.formErrors[item] += message[key] + " ";
                 }
+                ;
             }
+            ;
         }
+        ;
     };
+    ;
     CreateCommentComponent.prototype.createComment = function (createCommentForm) {
         var _this = this;
         this.comment.userName = createCommentForm.value.name;
@@ -68,8 +75,14 @@ var CreateCommentComponent = /** @class */ (function () {
                 name: ["", forms_1.Validators.required],
                 message: ["", forms_1.Validators.required]
             });
+            _this.list.refresh();
         }, function (error) { return _this.errorMessage = error; });
     };
+    ;
+    __decorate([
+        core_1.ViewChild(list_comment_commponent_1.ListCommentComponent),
+        __metadata("design:type", list_comment_commponent_1.ListCommentComponent)
+    ], CreateCommentComponent.prototype, "list", void 0);
     CreateCommentComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
@@ -83,4 +96,5 @@ var CreateCommentComponent = /** @class */ (function () {
     return CreateCommentComponent;
 }());
 exports.CreateCommentComponent = CreateCommentComponent;
+;
 //# sourceMappingURL=create-comment.component.js.map

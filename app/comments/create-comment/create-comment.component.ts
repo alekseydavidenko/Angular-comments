@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Comment, CommentService } from "../../shared/index";
-
-
+import { ListCommentComponent } from "../list-comment/list-comment.commponent";
 @Component({
     moduleId: module.id,
     selector: "create-comment",
@@ -25,6 +24,8 @@ import { Comment, CommentService } from "../../shared/index";
             "required": "Добавте свое сообщение"
         } 
     };
+    @ViewChild(ListCommentComponent)
+    list: ListCommentComponent;
     
     constructor(
         private commentService: CommentService,
@@ -33,7 +34,7 @@ import { Comment, CommentService } from "../../shared/index";
 
     ngOnInit(){
         this.BuildForm();
-    }
+    };
     BuildForm(){
         this.createCommentForm = this.fb.group({
             "name": [this.comment.userName, [Validators.required]],
@@ -42,7 +43,7 @@ import { Comment, CommentService } from "../../shared/index";
 
         this.createCommentForm.valueChanges
             .subscribe(data => this.onValueChanged(data));
-    }
+    };
     onValueChanged(data?: any){
         if(!this.createCommentForm) return;
 
@@ -58,11 +59,11 @@ import { Comment, CommentService } from "../../shared/index";
 
                 for (let key in control.errors) {
                     this.formErrors[item] += message[key] + " ";
-                }
-            }
-        }
-    }
-    createComment(createCommentForm: FormGroup){
+                };
+            };
+        };
+    };
+    createComment(createCommentForm: FormGroup) {
         
         this.comment.userName = createCommentForm.value.name;
         this.comment.comment = createCommentForm.value.message;
@@ -70,13 +71,14 @@ import { Comment, CommentService } from "../../shared/index";
 
         this.commentService.addComment(this.comment)
             .subscribe(
-                () => {
+                () => {                    
                     this.createCommentForm = this.fb.group({
                         name: ["", Validators.required],
                         message: ["", Validators.required]
-                    });
+                    });  
+                    this.list.refresh();                
                 },
                 error => this.errorMessage = error
-            )
-    }
-}
+            );            
+    };
+};

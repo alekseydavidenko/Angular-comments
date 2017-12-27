@@ -12,11 +12,31 @@ export class CommentService {
         private http: Http
     ){}
 
+    public getComments(): Observable<Comment[]> {
+        let comments = this.http.get(this.url)
+            .map(this.extractComments)
+            .catch(this.handleError);
+        return comments;
+    };
+
     public addComment(comment: Comment): Observable<Comment> {
         return this.http.post(this.url, comment)
             .catch(this.handleError);
-    }
+    };
+    private extractComments(response: Response){
+        let result = response.json();
+        let comments: Comment[] = [];
 
+        for (let i = 0, len = result.length; i < len; i += 1) {
+            comments.push(new Comment(
+                result[i].id, 
+                result[i].userName, 
+                result[i].comment, 
+                result[i].date
+            ));            
+        };
+        return comments.reverse();
+    };
     private handleError (error: any, cought: Observable<any>): any {
         let message = "";
 
@@ -29,6 +49,6 @@ export class CommentService {
         console.error(message);
 
         return Observable.throw(message);
-    }
-}
+    };
+};
 
